@@ -1,4 +1,3 @@
-import React from 'react';
 import TanstackTable from './components/table-components/table-content';
 import tableData from './data/table-data';
 
