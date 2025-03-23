@@ -3,7 +3,7 @@ import { TableData } from "./types/table-data-types";
 
 const columnHelper = createColumnHelper<TableData>();
 
-export const tableColumns: ColumnDef<TableData, never>[] = [
+export const tableColumns: ColumnDef<TableData, any>[] = [
   columnHelper.accessor("id", {
     id: "id",
     cell: (info) => <div>{info.getValue()}</div>,

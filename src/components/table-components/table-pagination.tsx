@@ -69,7 +69,7 @@ export const TablePagination: React.FC<TablePaginationProps> = ({ table }) => {
   return (
     <div className="flex justify-between p-2">
       {/* Page Info and Rows Selector */}
-      <div className=" flex items-center ">
+      <div className="flex items-center">
         <div className="text-sm text-gray-500 px-4 w-full">
           Page {pageIndex + 1} of {table.getPageCount()}
         </div>
@@ -89,51 +89,54 @@ export const TablePagination: React.FC<TablePaginationProps> = ({ table }) => {
           </SelectContent>
         </Select>
       </div>
-
+  
       {/* Pagination Controls - Aligned Right */}
-      <Pagination className=" ">
-        <PaginationContent>
-          <PaginationItem>
-            <PaginationLink onClick={() => table.firstPage()}>
-              <ChevronsLeft />
-            </PaginationLink>
-          </PaginationItem>
-
-          <PaginationItem>
-            <PaginationPrevious onClick={() => table.previousPage()} />
-          </PaginationItem>
-
-          {paginationItems.map((page, i) => {
-            if (page < 0) {
+      <div className="flex justify-end w-full">
+        <Pagination className="flex items-end">
+          <PaginationContent>
+            <PaginationItem>
+              <PaginationLink onClick={() => table.firstPage()}>
+                <ChevronsLeft />
+              </PaginationLink>
+            </PaginationItem>
+  
+            <PaginationItem>
+              <PaginationPrevious onClick={() => table.previousPage()} />
+            </PaginationItem>
+  
+            {paginationItems.map((page, i) => {
+              if (page < 0) {
+                return (
+                  <PaginationItem key={`ellipsis-${i}`}>
+                    <PaginationEllipsis />
+                  </PaginationItem>
+                );
+              }
               return (
-                <PaginationItem key={`ellipsis-${i}`}>
-                  <PaginationEllipsis />
+                <PaginationItem key={page}>
+                  <PaginationLink
+                    isActive={pageIndex + 1 === page}
+                    onClick={() => table.setPageIndex(page - 1)}
+                  >
+                    {page}
+                  </PaginationLink>
                 </PaginationItem>
               );
-            }
-            return (
-              <PaginationItem key={page}>
-                <PaginationLink
-                  isActive={pageIndex + 1 === page}
-                  onClick={() => table.setPageIndex(page - 1)}
-                >
-                  {page}
-                </PaginationLink>
-              </PaginationItem>
-            );
-          })}
-
-          <PaginationItem>
-            <PaginationNext onClick={() => table.nextPage()} />
-          </PaginationItem>
-
-          <PaginationItem>
-            <PaginationLink onClick={() => table.lastPage()}>
-              <ChevronsRight />
-            </PaginationLink>
-          </PaginationItem>
-        </PaginationContent>
-      </Pagination>
+            })}
+  
+            <PaginationItem>
+              <PaginationNext onClick={() => table.nextPage()} />
+            </PaginationItem>
+  
+            <PaginationItem>
+              <PaginationLink onClick={() => table.lastPage()}>
+                <ChevronsRight />
+              </PaginationLink>
+            </PaginationItem>
+          </PaginationContent>
+        </Pagination>
+      </div>
     </div>
   );
+  
 };

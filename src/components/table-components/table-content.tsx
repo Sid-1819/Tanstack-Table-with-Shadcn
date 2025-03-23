@@ -37,7 +37,7 @@ const TanstackTable: React.FC<TableDataProps> = ({ data }) => {
   });
 
   // Use our createReportColumns function to get the appropriate columns
-  const columns: ColumnDef<TableData, never>[] = tableColumns;
+  const columns: ColumnDef<TableData, any>[] = tableColumns;
 
   const table = useReactTable({
     data,
