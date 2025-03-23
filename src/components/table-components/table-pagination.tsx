@@ -91,8 +91,8 @@ export const TablePagination: React.FC<TablePaginationProps> = ({ table }) => {
       </div>
   
       {/* Pagination Controls - Aligned Right */}
-      <div className="flex justify-end w-full">
-        <Pagination className="flex items-end">
+      <div className="flex justify-end w-full px-2">
+        <Pagination className="flex justify-end items-end">
           <PaginationContent>
             <PaginationItem>
               <PaginationLink onClick={() => table.firstPage()}>
