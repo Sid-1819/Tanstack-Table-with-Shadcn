@@ -89,7 +89,7 @@ export const TablePagination: React.FC<TablePaginationProps> = ({ table }) => {
           </SelectContent>
         </Select>
       </div>
-  
+
       {/* Pagination Controls - Aligned Right */}
       <div className="flex justify-end w-full px-2">
         <Pagination className="flex justify-end items-end">
@@ -99,11 +99,11 @@ export const TablePagination: React.FC<TablePaginationProps> = ({ table }) => {
                 <ChevronsLeft />
               </PaginationLink>
             </PaginationItem>
-  
+
             <PaginationItem>
               <PaginationPrevious onClick={() => table.previousPage()} />
             </PaginationItem>
-  
+
             {paginationItems.map((page, i) => {
               if (page < 0) {
                 return (
@@ -123,11 +123,11 @@ export const TablePagination: React.FC<TablePaginationProps> = ({ table }) => {
                 </PaginationItem>
               );
             })}
-  
+
             <PaginationItem>
               <PaginationNext onClick={() => table.nextPage()} />
             </PaginationItem>
-  
+
             <PaginationItem>
               <PaginationLink onClick={() => table.lastPage()}>
                 <ChevronsRight />
@@ -138,5 +138,4 @@ export const TablePagination: React.FC<TablePaginationProps> = ({ table }) => {
       </div>
     </div>
   );
-  
 };

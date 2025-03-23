@@ -24,7 +24,7 @@ import { Input } from "@/components/ui/input";
 import { TableData, TableDataProps } from "./types/table-data-types";
 import { tableColumns } from "./table-columns";
 import { TablePagination } from "./table-pagination";
-import CountryFilter from "./filters/filter-1";
+import CountryFilter from "./filters/country-filter";
 import { StatusFilter } from "./filters/status-filter";
 
 const TanstackTable: React.FC<TableDataProps> = ({ data }) => {
